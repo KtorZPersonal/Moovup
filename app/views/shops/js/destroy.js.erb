@@ -1,0 +1,6 @@
+$('.white-flash').fadeOut(function(){$('.white-flash').remove()});
+<% if @error.blank? %>
+	$('#shop_<%= @shop.id %>').fadeOut();
+<% else %>
+	$('body').prepend('<div class="alert-dismissable alert fade-in alert-danger"><%= @error %><button class="close" data-dismiss="alert">&times;</button></div>');
+<% end %>

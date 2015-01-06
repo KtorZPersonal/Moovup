@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Moovup" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://moovup.herokuapp.com/" />
+    <meta property="og:image" content="http://moovup.herokuapp.com/logo.jpg" />
+    <meta property="og:description" content="Vitrine virtuelle d'offres promotionnelles des magasins autour de chez vous." />
+
+    <title><%= content_for?(:title) ? yield(:title) : "Moovup" %></title>
+    <%= csrf_meta_tags %>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+    <%= stylesheet_link_tag "bootstrap", :media => "all" %> 
+    <%= stylesheet_link_tag "jquery.fancybox", :media => "all" %> 
+
+    <%= stylesheet_link_tag "main", :media => "all" %> 
+    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "bootstrap" %>
+    <%= javascript_include_tag "jquery.fancybox" %>
+    <%= javascript_include_tag "tinymce/tinymce.min.js" %>
+
+
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag('logo.png'), root_path, class: 'navbar-brand' %>
+      </div>
+
+      <%= render "layouts/navigation" %>
+
+    </div>
+  </nav>
+
+  <%= bootstrap_flash %>
+  <%= yield %>
+
+  <footer class="navbar-default navbar-fixed-bottom text-tiny">
+      <%= link_to "Vous êtes un professionnel ?", pro_root_path %>
+      <br/>&copy; Moovup 2013-2014
+  </footer>
+  </body>
+</html>

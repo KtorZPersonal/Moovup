@@ -1,0 +1,18 @@
+<section class="container">
+    <h1 class="text-center">Votre Profil</h1>
+    <div class="col-md-4 col-md-offset-2 img-profil-container">
+    	<div class="img-profil">
+			<%= image_tag current_user.avatar.url(:thumb) %>
+		</div>
+	</div>
+	<div class="col-md-4 content-profil">
+		<%= current_user.firstname %> <%= current_user.lastname %><br/>
+		<% unless current_user.birthday.nil? %><%= time_ago_in_words current_user.birthday %><br/><% end %>
+		<%= current_user.email %><br/>
+		<%= current_user.address %>
+	</div>
+	<div class="container-main col-md-12 text-center">
+		<%= link_to "Modifier le profil", edit_user_registration_path, :class => 'btn btn-primary' %>
+		<%= link_to "Modifier la photo", edit_avatar_path, :class => 'btn btn-info' %>
+	</div>
+</section>

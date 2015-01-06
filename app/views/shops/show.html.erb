@@ -1,0 +1,34 @@
+<section class="container text-center">
+
+    <h1 class="text-center"><%= @shop.name %></h1>
+
+	<%= link_to("", like_shop_path(@shop), method: :put, id: "favorite", class: "#{favorite_class_of(@shop, current_user)} disappear tooltiped", remote: true, "data-toggle" => "tooltip", "data-original-title" => "#{favorite_tooltip_of(@shop, current_user)}") if user_signed_in? %>
+
+	<br/>
+    <div class="shop-cover"><%= image_tag @shop.cover(:show) %></div>
+    <div class="shop-photo"><%= image_tag @shop.photo(:show) %></div>
+
+	<%= dump_google_map([@shop]) %>
+
+	<div class="shop-description">
+	<h4>Qui sommes-nous ?</h4><br/>
+	<%= @shop.description.html_safe %>
+	</div>
+
+	<% @shop.offers.each do |offer| %>
+	    <div class="offer" data-url="<%= offer.photo.url %>">
+	      <div class="img-block-offer">
+		  	<%= image_tag offer.photo(:showInDaShop), alt: offer.title %>
+	      </div>
+	      <div class="full-offer">
+	      	<div class="header-offer"><h4><%= offer.title %></h4></div>
+	        <div class="content-offer">
+	        	<%= offer.description %>
+	        </div>
+	        <div class="footer-offer">
+	          <span class="date">Pendant <%= distance_of_time_in_words_to_now offer.expiry %></span>
+	        </div>
+	      </div>
+	    </div>
+    <% end %>
+</section>

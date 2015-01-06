@@ -1,0 +1,31 @@
+<section class="container text-center">
+    <h1 class="text-center"><%= @shop.name %></h1>
+
+	<br/>
+    <div class="shop-cover"><%= image_tag @shop.cover(:show) %></div>
+    <div class="shop-photo"><%= image_tag @shop.photo(:show) %></div>
+
+	<%= dump_google_map([@shop]) %>
+	
+	<div class="shop-description">
+	<h4>Qui sommes-nous ?</h4><br/>
+	<%= @shop.description.html_safe %>
+	</div>
+
+
+	<div class="col-md-6 col-md-offset-3 text-center container-main">
+		<%= form_for @shop, url: valid_shop_admin_path(@shop), html:{method: :put} do |f|%>
+			<div class="form-group">
+				<label>Commentaires</label>
+				<%= f.text_area :pending_comment, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.select :confirmed, [["Confirmer", true], ["Rejeter", false]], {}, class: "select" %>
+			</div>
+			<div class="form-group text-center">
+				<input type="submit" value="Valider" class="btn btn-primary" />
+				<%= link_to "Annuler", shops_admin_path, class: "btn btn-danger" %>
+			</div>
+		<% end %>
+	</div>
+</section>

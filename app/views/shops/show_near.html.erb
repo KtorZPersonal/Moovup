@@ -1,0 +1,8 @@
+<section class="container text-center">
+    <h1 class="text-center">Les magasins près de chez vous</h1>
+	<% @shops.each do |shop| %>
+		<div class="favorite">
+			<%= link_to image_tag(shop.photo(:show)), shop_path(shop) %>
+		</div>
+	<% end %>
+</div>

@@ -1,0 +1,13 @@
+<section class="container container-margin text-center">
+	<h1>Nouveau magasin</h1>
+	<%= model_error_messages!(@shop) %>
+	<%= form_for @shop, url: shops_path, :html => {multipart: true} do |f| %>
+		<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+			<%= render partial: 'form', locals: {f: f} %>
+			<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">
+				<%= f.submit  "Créer le magasin", :class => "btn btn-primary"%>
+			    <%= link_to "Annuler", index_shops_path(:active), :class => 'btn btn-danger' %>
+			</div>
+		</div>
+	<% end %>
+</section>

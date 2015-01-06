@@ -1,0 +1,8 @@
+<article class="col-md-8 col-md-offset-4">
+	<div class="img-block">
+		<%= link_to image_tag(offer.photo(:show)), shop_path(shop) %>
+	</div>
+	<div class="icon-offers"><span class="glyphicon glyphicon-<%= category_to_icon(offer.category)%>"></span></div>
+	<h4><%= offer.title %></h4><br/>
+	<%= offer.description %>
+</article>

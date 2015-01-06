@@ -1,0 +1,387 @@
+/* Importation des polices externes */
+
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,600,700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600,300);
+
+body{
+	padding: 70px 0;
+	color:#34687F;
+}
+html {overflow-y: scroll;}
+
+/* Correction général bootstrap */
+.btn{border-radius: 2px;}
+h1{
+	font-family: "Josefin sans", "Open Sans", Helvetica;
+	font-weight: 600;
+	-webkit-text-stroke: 0.7px;
+}
+.table > tbody > tr > td{
+	vertical-align: middle;
+}
+.table > tbody > tr > td img{
+	border: 1px solid #ccc;
+}
+/* Header  */
+.navbar-brand{padding: 0;}
+.navbar-brand img{max-height: 65px;}
+.navbar{padding: 0 0;line-height: 70px;}
+.navbar-default .navbar-nav>li>a, 
+.navbar-default .navbar-nav>li>a:visited{background: rgb(27,183,255);color: #fff;}
+.navbar-default .navbar-nav>li>a:hover, 
+.navbar-default .navbar-nav>li>a:focus{background: rgba(27,183,255,0.8);color: #fff;}
+.navbar-default .navbar-nav>li>.logout, 
+.navbar-default .navbar-nav>li>.logout:visited{background: rgb(169,68,66);color: #fff;}
+.navbar-default .navbar-nav>li>.logout:hover, 
+.navbar-default .navbar-nav>li>.logout:focus{background: rgba(169,68,66, 0.8);color: #fff;}
+.navbar-nav{margin: 0 -15px;}
+.navbar-form{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	display: block;
+	margin: 0 auto;
+	width: 275px;
+}
+footer{text-align: center;color: #aaa;}
+#login{margin-top: 10px;}
+.dropdown-menu{min-width: 220px;}
+.dropdown-menu>li>a,
+.dropdown-menu>li>a:hover, 
+.dropdown-menu>li>a:focus{color: #34687F;}
+.dropdown-menu>li>.logout{color: #a94442;}
+.dropdown-menu>li>.logout:hover,
+.dropdown-menu>li>.logout:focus{color: #843534;}
+
+@media(min-width: 768px){
+	.navbar-default .navbar-nav>li>a{
+		line-height: 40px;
+		padding: 0 15px;
+		margin: 15px 5px;
+		height: 40px;
+		border-radius: 2px;
+		vertical-align: middle;
+	}
+
+	.navbar-default .navbar-nav .dropdown-toggle{
+		position: relative;
+		top: -2px;
+		line-height: 40px;
+		padding: 0 15px;
+		margin: 0 5px;
+		height: 40px;
+		border-radius: 2px;
+		vertical-align: middle;
+	}
+
+	.navbar-form{
+		z-index: 9999;
+		position: fixed;
+		width: 250px;
+		left: 50%;
+		top: 0;
+		margin: -2px 0 0 -145px;
+	}
+}
+
+@media(min-width: 992px){
+	.navbar-form{
+		width: 300px;
+		margin-left: -170px;
+	}
+}
+
+.container-main {padding-top: 25px;}
+.navbar-default .navbar-toggle .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar{background: #1bb7ff;}
+.navbar-default .navbar-toggle,.navbar-default .navbar-toggle:focus{background: #fff;}
+.navbar-default .navbar-toggle:hover .icon-bar{background: #fff;}
+.navbar-default .navbar-toggle:hover{background: #1bb7ff;}
+.navbar-default .navbar-toggle:focus{outline: none;}
+.navbar-default .navbar-toggle{margin: 23px 8px;}
+
+.city-photo{height: 500px;}
+.city-amiens{background: url("cities/Amiens.jpg") center center no-repeat, url("cities/Amiens-fast.jpg") center center no-repeat;}
+.city-angers{background: url("cities/Angers.jpg") center center no-repeat, url("cities/Angers-fast.jpg") center center no-repeat;}
+.city-besancon{background: url("cities/Besancon.jpg") center center no-repeat, url("cities/Besancon-fast.jpg") center center no-repeat;}
+.city-bordeaux{background: url("cities/Bordeaux.jpg") center center no-repeat, url("cities/Bordeaux-fast.jpg") center center no-repeat;}
+.city-brest{background: url("cities/Brest.jpg") center center no-repeat, url("cities/Brest-fast.jpg") center center no-repeat;}
+.city-caen{background: url("cities/Caen.jpg") center center no-repeat, url("cities/Caen-fast.jpg") center center no-repeat;}
+.city-clermont{background: url("cities/Clermont.jpg") center center no-repeat, url("cities/Clermont-fast.jpg") center center no-repeat;}
+.city-dijon{background: url("cities/Dijon.jpg") center center no-repeat, url("cities/Dijon-fast.jpg") center center no-repeat;}
+.city-grenoble{background: url("cities/Grenoble.jpg") center center no-repeat, url("cities/Grenoble-fast.jpg") center center no-repeat;}
+.city-le-havre{background: url("cities/Le-havre.jpg") center center no-repeat, url("cities/Le-havre-fast.jpg") center center no-repeat;}
+.city-le-mans{background: url("cities/Le-mans.jpg") center center no-repeat, url("cities/Le-mans-fast.jpg") center center no-repeat;}
+.city-lille{background: url("cities/Lille.jpg") center center no-repeat, url("cities/Lille-fast.jpg") center center no-repeat;}
+.city-limoges{background: url("cities/Limoges.jpg") center center no-repeat, url("cities/Limoges-fast.jpg") center center no-repeat;}
+.city-lyon{background: url("cities/Lyon.jpg") center center no-repeat, url("cities/Lyon-fast.jpg") center center no-repeat;}
+.city-marseille{background: url("cities/Marseille.jpg") center center no-repeat, url("cities/Marseille-fast.jpg") center center no-repeat;}
+.city-metz{background: url("cities/Metz.jpg") center center no-repeat, url("cities/Metz-fast.jpg") center center no-repeat;}
+.city-montpellier{background: url("cities/Montpellier.jpg") center center no-repeat, url("cities/Montpellier-fast.jpg") center center no-repeat;}
+.city-nancy{background: url("cities/Nancy.jpg") center center no-repeat, url("cities/Nancy-fast.jpg") center center no-repeat;}
+.city-nantes{background: url("cities/Nantes.jpg") center center no-repeat, url("cities/Nantes-fast.jpg") center center no-repeat;}
+.city-nice{background: url("cities/Nice.jpg") center center no-repeat, url("cities/Nice-fast.jpg") center center no-repeat;}
+.city-orleans{background: url("cities/Orleans.jpg") center center no-repeat, url("cities/Orleans-fast.jpg") center center no-repeat;}
+.city-paris{background: url("cities/Paris.jpg") center center no-repeat, url("cities/Paris-fast.jpg") center center no-repeat;}
+.city-perpignan{background: url("cities/Perpignan.jpg") center center no-repeat, url("cities/Perpignan-fast.jpg") center center no-repeat;}
+.city-reims{background: url("cities/Reims.jpg") center center no-repeat, url("cities/Reims-fast.jpg") center center no-repeat;}
+.city-rennes{background: url("cities/Rennes.jpg") center center no-repeat, url("cities/Rennes-fast.jpg") center center no-repeat;}
+.city-rouen{background: url("cities/Rouen.jpg") center center no-repeat, url("cities/Rouen-fast.jpg") center center no-repeat;}
+.city-strasbourg{background: url("cities/Strasbourg.jpg") center center no-repeat, url("cities/Strasbourg-fast.jpg") center center no-repeat;}
+.city-toulouse{background: url("cities/Toulouse.jpg") center center no-repeat, url("cities/Toulouse-fast.jpg") center center no-repeat;}
+.city-tours{background: url("cities/Tours.jpg") center center no-repeat, url("cities/Tours-fast.jpg") center center no-repeat;}
+
+
+.nav-pills-sm > li {float:none;display:inline-block;*display:inline; /* ie7 fix */zoom:1; /* hasLayout ie7 trigger */}
+.nav-pills-sm { text-align:center;margin-bottom: 25px;}
+
+.nav-pills-sm>li>a{padding: 0 7px;}
+.nav-pills-sm>li>a:focus{outline: none;}
+.nav-pills>li>a:focus{outline: none;}
+
+
+.icon-offers{background: #1bb7ff;color: #fff;padding: 5px 10px;display: none;}
+
+@media(min-width: 500px){
+	.nav-pills-sm>li>a{padding: 10px 15px;}
+	.icon-offers{display: inline-block;}
+}
+
+.img-block{
+	width: 75px;
+	height: 75px;
+	overflow: hidden;
+	display: block;
+	float: left;
+	margin: 0 15px 0 0;
+	border: 1px solid #ccc;
+}
+@media(min-width: 768px){.img-block{width: 120px;height: 120px;}}
+@media(min-width: 992px){.img-block{width: 150px;height: 150px;}}
+
+.img-block img{
+	width: 100%;
+}
+
+h4{display: inline-block;margin: 0;}
+article{
+	min-height: 90px;
+	padding: 5px;
+	min-width: 400px;
+	margin: 0 0 10px 0;
+	overflow: auto;
+	text-align:justify;
+	text-justify:inter-word;
+}
+@media(min-width: 768px){article{min-height: 135px;}}
+@media(min-width: 992px){article{min-height: 165px;}}
+
+.nav-pills-fixed{position:fixed;}
+
+.shop-cover{width: 100%; max-height: 300px; min-height: 100px;overflow: hidden;text-align: center;}
+.shop-cover img{width: 100%; border: 1px solid #ccc;}
+
+.shop-photo{
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	background: #fff;
+	border: 1px solid #ccc;
+	margin: -50px 0 -50px 40px;
+	text-align: center;
+	position: relative;
+	vertical-align: middle;
+	z-index:999;
+}
+@media(min-width: 768px){.shop-photo{width: 150px;height: 150px;margin: -75px 0 -75px 40px;}}
+@media(min-width: 992px){.shop-photo{width: 200px;height: 200px;margin: -100px 0 -100px 40px;}}
+.shop-photo img{width: 100%;}
+
+.map{
+	height: 300px;
+	width: 100%;
+	border: 1px solid #ccc;
+	background: #ccc;
+	position: relative;
+}
+
+.offer{
+	display: inline-block;
+	width: 300px;
+	height: 300px;
+	overflow: hidden;
+	margin: 25px;
+	padding: 0;
+	cursor: pointer;
+	border: 1px solid #ccc;
+	background: rgba(0,0,0,0.8);
+}
+
+.img-block-offer{
+	width: 300px;
+	height: 300px;
+}
+
+.full-offer{
+	height: 300px;
+	top: -50px;
+	position: relative;
+	z-index: 2;
+	color: #fff;
+}
+
+.footer-offer{
+	background: rgba(0,0,0,0.8);
+	position:relative;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+}
+
+.offer .date{
+	font-size: 0.9em;
+}
+
+.header-offer{
+	width: 100%;
+	overflow: hidden;
+	height: 50px;
+	display: inline-block;
+	line-height: 50px;
+	padding: 0 5px;
+	word-wrap: break-word;
+	font-size: 16px;	
+	text-align: center;
+	background: #1bb7ff;
+}
+
+.offer .content-offer{
+	background: rgba(0,0,0,0.8);
+	text-align:justify;
+	text-justify:inter-word;
+	font-size: 14px;
+	padding: 10px;
+	height: 200px;
+	margin-top: -5px;
+	overflow: auto;
+}
+
+.favorite{
+	width: 150px;
+	height: 150px;
+	margin: 25px;
+	display: inline-block;
+	border: 1px solid #ccc;
+}
+
+.favorite img{
+	width: 100%;
+}
+
+.alert{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 0;
+	z-index: 10000;
+	text-align: center;
+	cursor: pointer;
+}
+
+.favorite-icon, .favorite-icon-selected{
+	display: block;
+	height: 28px;
+	width: 28px;
+	margin: 0 auto;
+	background: url("/assets/star.png") no-repeat;
+	cursor: pointer;
+}
+
+.favorite-icon:hover, .favorite-icon-selected{
+	background-position:  0 -28px;
+	outline: none;
+}
+.favorite-icon-selected:hover{
+	background-position:  0 0;
+}
+
+.favorite-icon:focus, .favorite-icon-selected:focus{
+	outline: none;
+}
+
+.img-profil img{
+	width: 100%;
+	border:1px solid #ccc;
+}
+.img-profil{
+	width: 150px;
+	display: inline-block;
+}
+.img-profil-container{
+	text-align: center;
+}
+.content-profil{
+	text-align: center;
+}
+@media(min-width: 992px){.img-profil-container{text-align: right;}}
+@media(min-width: 992px){.content-profil{text-align: left;}}
+
+input[type='file']{
+	margin: 0 auto;
+}
+
+.select{
+	width: 100%;
+	margin: 10px 0;
+}
+
+textarea{
+	resize: none;
+}
+
+.admin-form-container{
+	vertical-align: middle;
+	padding: 75px 10px;
+}
+
+
+.white-flash{
+	top: 0;
+	left: 0;
+	position: absolute;
+	z-index: 9999;
+	height: 100%;
+	width: 100%;
+	background: rgba(255,255,255,0.7);
+}
+
+.white-flash .loader{
+	position:absolute;
+	top: 30%;
+	left: 50%;
+	z-index: 10000;
+	height: 48px;
+	width: 78px;
+	margin: -24px 0 0 -39px;
+	background: url('loader.gif') no-repeat;
+}
+
+.icons-2{
+	min-width: 104px;
+}
+.icons-3{
+	min-width: 156px;
+}
+
+.errors_explanations{
+  background-color: #f2dede;
+  border: 1px solid #ebccd1;
+  color: #a94442;
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 25px;
+  text-align: left;
+}
+
+.table img{
+	max-width: 100px;
+}

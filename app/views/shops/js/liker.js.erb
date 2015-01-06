@@ -1,0 +1,8 @@
+$('.white-flash').fadeOut(function(){$('.white-flash').remove()});
+<% if @error.blank? %>
+	$("#favorite").attr("class", "<%= favorite_class_of(@shop, current_user) %> disappear tooltiped")
+	$("#favorite").attr("data-original-title", "<%= favorite_tooltip_of(@shop, current_user) %>")
+	$('body').prepend('<div class="alert alert-info alert-dynamic"><%= @notice %></div>');
+<% else %>
+	$('body').prepend('<div class="alert alert-danger alert-dynamic"><%= @error %></div>');
+<% end %>

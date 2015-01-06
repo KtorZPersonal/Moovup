@@ -1,0 +1,49 @@
+<div class="page-header text-center">
+  <%= link_to 'Confirmés', index_shops_path(:active), class: "#{nav_class_of(params[:status], 'active')} disappear remove-shops", remote: true %>
+  <%= link_to 'En attente', index_shops_path(:pending), class: "#{nav_class_of(params[:status], 'pending')} disappear remove-shops", remote: true %>
+</div>
+<table class="table table-striped text-center">
+  <tbody>
+    <% @shops.each do |shop| %>
+      <tr id="shop_<%= shop.id %>">
+        <td><%= link_to image_tag(shop.photo(:thumb)), shop_path(shop), target: "_blank" %></td>
+        <td><%= link_to shop.name, shop_path(shop), target: "_blank" %></td>
+        <td class="visible-md visible-lg"><%= truncate(shop.address, length: 25) %></td>
+        <td class="visible-md visible-lg"><%= shop.email %></td>
+				<td class="visible-md visible-lg"><%= shop.phone %></td>
+        <td class="icons-<%= if params[:status] == 'active' then 2 else 3 end %>">
+          <p class="text-right">
+          <% unless shop.pending %>
+          <% unless params[:status] == 'active' %>
+            <%= link_to raw('<span class="glyphicon glyphicon-ok" alt="verifier"></span>'), submit_shop_path(shop), class: "tooltiped btn btn-mini btn-info", method: :put, "data-toggle" => "tooltip", "data-original-title" => "Soumettre le magasin" %>
+          <% end %>
+          <%= link_to raw('<span class="glyphicon glyphicon-pencil" alt="editer"></span>'), edit_shop_path(shop), class: "tooltiped btn btn-mini btn-primary", "data-toggle" => "tooltip", "data-original-title" => "Editer le magasin" %>
+
+          <%= link_to raw('<span class="glyphicon glyphicon-remove" alt="supprimer"></span>'), shop_path(shop), class: "tooltiped btn btn-mini btn-danger disappear", "data-toggle" => "tooltip", "data-original-title" => "Supprimer le magasin", method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, remote: true%>
+          </p>
+          <% end %>
+        </td>
+      </tr>
+      <% unless shop.confirmed || shop.pending || shop.pending_comment.blank? %>
+        <tr>
+          <td></td>
+          <td colspan="6">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Commentaires de l'équipe Moovup :</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><%= shop.pending_comment %></td>
+              </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>

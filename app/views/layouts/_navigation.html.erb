@@ -1,0 +1,76 @@
+<div class="collapse navbar-collapse" id="nav">
+	<ul class="nav navbar-nav navbar-right">
+		<li>
+		  <%= form_tag aroundme_offers_path(:all, :all), class: "navbar-form" do %>
+		    <div class="input-group search-group">
+		      <%= text_field_tag :address, nil, placeholder: "Entrez une ville", :class => 'form-control' %>
+		      <span class="input-group-btn">
+		        <button class="btn btn-primary" type="submit">
+		          <span class="glyphicon glyphicon-search"></span>
+		        </button>
+		      </span>
+		    </div>
+		  <% end %>
+		</li>
+		<% if user_signed_in? %>
+			<% if current_user.rank == User::PRO %>
+				<li class="visible-lg visible-md visible-sm">
+					<div class="btn-group dropdown">
+						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Gestion <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><%= link_to raw('<span class="glyphicon glyphicon-shopping-cart"></span> Magasins'), index_shops_path(:active) %></li>
+							<li class="divider"></li>
+							<li><%= link_to raw('<span class="glyphicon glyphicon-picture"></span> Annonces'), index_offers_path(:active) %></li>
+						</ul>             
+					</div>
+				</li>
+				<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-shopping-cart"></span> Magasins'), index_shops_path(:active) %></li>
+				<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-picture"></span> Annonces'), index_offers_path(:active) %></li>
+			<% end %>
+			<% if current_user.rank == User::MODO %>
+				<li class="visible-lg visible-md visible-sm">
+					<div class="btn-group dropdown">
+						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Gestion <span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li><%= link_to raw('<span class="glyphicon glyphicon-shopping-cart"></span> Magasins'), shops_admin_path %></li>
+							<li><%= link_to raw('<span class="glyphicon glyphicon-picture"></span> Annonces'), offers_admin_path %></li>
+						</ul>             
+					</div>
+				</li>
+				<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-shopping-cart"></span> Magasins'), shops_admin_path %></li>
+				<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-picture"></span> Annonces'), offers_admin_path %></li>
+			<% end %>
+	        <li class="visible-lg visible-md visible-sm">
+	          <div class="btn-group dropdown">
+	              <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">Mon Compte <span class="caret"></span></button>
+	              <ul class="dropdown-menu">
+	                <li><%= link_to raw('<span class="glyphicon glyphicon-user"></span> Profil'), user_profil_path %></li>
+					<% if current_user.rank < User::MODO %>
+		                <li class="divider"></li>
+		                <li><%= link_to raw('<span class="glyphicon glyphicon-star"></span> Favoris'), user_favorites_path %></li>
+	                <% end %>
+	                <li class="divider"></li>
+	                <li><%= link_to raw('<span class="glyphicon glyphicon-remove"></span> Déconnexion'), destroy_user_session_path, method: :delete, class: "logout" %></li>
+	              </ul>             
+	          </div>
+	        </li>
+			<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-user"></span> Profil'), user_profil_path %></li>
+			<% if current_user.rank < User::MODO %>
+				<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-star"></span> Favoris'), user_favorites_path %></li>
+			<% end %>
+			<li class="visible-xs"><%= link_to raw('<span class="glyphicon glyphicon-remove"></span> Déconnexion'), destroy_user_session_path, method: :delete, class: "logout" %></li>
+		<% else %>
+			<li><%= link_to 'Inscription', new_user_registration_path %></li>
+			<li><a data-target="#login" data-toggle="collapse" href="#">Connexion</a></li>
+		<% end %>
+	</ul>
+</div>
+<% unless user_signed_in? %>
+	<div class="collapse text-center" id="login">
+		<%= form_for(User.new, :as => :user, :url => new_user_session_path, html: {class: "form-inline"}) do |f| %>
+		  <div class="form-group"><%= f.email_field :email, placeholder: "Adresse email", :class => 'form-control' %></div>
+		  <div class="form-group"><%= f.password_field :password, placeholder: "Mot de passe", :class => 'form-control' %></div>
+		  <div class="form-group"><button type="submit" class="btn btn-primary">Se connecter</button></div>
+		<% end %>
+	</div>
+<% end %>

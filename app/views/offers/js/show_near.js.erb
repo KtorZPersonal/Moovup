@@ -1,0 +1,11 @@
+$('.nav-pills').remove();$('.offers-nav').remove();$('.articles article').remove();
+$('.articles .row').prepend("<%= j drop_offers_favorites_nav(params[:category], params[:favorites]) %>");
+$('.articles .row').prepend("<%= j drop_offers_nav(params[:category], params[:favorites]) %>");
+<% @offers.each do |offer, shop| %>
+	$('.articles .row').append('<%= j render partial: "offer", locals: {offer: offer, shop: shop} %>');
+<% end %>
+<% if @offers.empty? %>
+	$('.articles .row').append('<article class="col-md-8 col-md-offset-4 text-center"><br/><br/><br/>Aucune annonce disponible</article>');
+<% end %>
+$('.white-flash').fadeOut(function(){$('.white-flash').remove()});
+

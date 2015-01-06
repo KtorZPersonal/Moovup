@@ -1,0 +1,13 @@
+<section class="container container-margin text-center">
+	<h1>Publication d'une annonce</h1>
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+		<%= form_for @offer, url: publish_offer_path(@offer), :html => {method: :put} do |f| %>
+
+			<%= f.select :shops, shops_list(current_user), {}, {:class => 'select'} %><br/>
+			<div class="text-center">
+			    <%= f.submit "Publier l'annonce", :class => 'btn btn-primary' %>
+			    <%= link_to "Annuler", index_offers_path(:active), :class => 'btn btn-danger' %>
+		    </div>
+		<% end %>
+	</div>
+</section>

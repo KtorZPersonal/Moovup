@@ -1,0 +1,18 @@
+<section class="container text-center">
+    <h1>Modification de la photo</h1>
+    <%= model_error_messages!(current_user) %>
+
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2">
+		<%= form_for current_user, :as => :user, url: edit_avatar_path, :html => {method: :put} do |f| %>
+
+			<%= f.file_field 'avatar', :accept => 'image/png,image/gif,image/jpeg'%>
+			<br/>
+
+			<div class="col-md-12">
+				<%= f.submit "Modifier la photo", :class => 'btn btn-primary' %>
+				<%= link_to "Annuler", user_profil_path, :class => 'btn btn-danger' %>
+			</div>
+			</div>
+		<% end %>
+	</div>
+</section>

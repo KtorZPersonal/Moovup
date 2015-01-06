@@ -1,0 +1,22 @@
+<section class="container">
+<h1 class="text-center">Gestion des annonces</h1>
+	<table class="table table-striped">
+	  <tbody>
+	    <% @offers.each do |offer| %>
+	      <tr>
+	        <td><%= image_tag offer.photo.url(:thumb) %></td>
+	        <td><%= offer.title %></td>
+	        <td><%= truncate offer.description, length: 25 %></td>
+	        <td class="text-center"><%= offer.expiry %></td>
+	        <td>
+	          <p class="text-right">
+
+
+	          <%= link_to raw('<span class="glyphicon glyphicon-eye-open" alt="publier"></span>'), valid_offer_admin_path(offer), class: "tooltiped btn btn-mini btn-info", "data-toggle" => "tooltip", "data-original-title" => "Contrôler l'annonce" %>
+	          </p>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</section>

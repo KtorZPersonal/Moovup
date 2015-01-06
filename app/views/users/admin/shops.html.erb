@@ -1,0 +1,18 @@
+<section class="container">
+<h1 class="text-center">Gestion des magasins</h1>
+	<table class="table table-striped">
+	  <tbody>
+	    <% @shops.each do |shop| %>
+	      <tr>
+	        <td><%= image_tag shop.photo.url(:thumb) %></td>
+	        <td><%= shop.name %></td>
+	        <td>
+	          <p class="text-right">
+	          <%= link_to raw('<span class="glyphicon glyphicon-eye-open" alt="publier"></span>'), valid_shop_admin_path(shop), class: "tooltiped btn btn-mini btn-info", "data-toggle" => "tooltip", "data-original-title" => "Contrôler le magasin" %>
+	          </p>
+	        </td>
+	      </tr>
+	    <% end %>
+	  </tbody>
+	</table>
+</section>

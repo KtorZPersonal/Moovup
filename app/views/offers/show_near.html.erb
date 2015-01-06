@@ -1,0 +1,18 @@
+<section class="container articles">
+	<h1 class="text-center">Annonces à proximité</h1>
+	<div class="row">
+
+		<%= drop_offers_nav(params[:category], params[:favorites]) %>
+
+		<%= drop_offers_favorites_nav(params[:category], params[:favorites]) %>
+
+		<% @offers.each do |offer, shop| %>
+			<%= render partial: "offer", locals: {offer: offer, shop: shop} %>
+		<% end %>
+
+		<% if @offers.empty? %>
+			<article class="col-md-8 col-md-offset-4 text-center"><br/><br/><br/>Aucune annonce disponible</article>
+		<% end %>
+
+	</div>
+</section>	

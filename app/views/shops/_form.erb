@@ -1,0 +1,38 @@
+<div class="form-group text-left">
+	<label class="visible-md visible-lg">Nom du magasin</label>
+	<%= f.text_field :name, :autofocus => true, :class => 'form-control', placeholder: "Nom du magasin" %>
+</div>
+
+<div class="form-group text-left">
+	<label class="visible-md visible-lg">Description</label>
+	<%= f.bootsy_area :description, :class => 'form-control', rows:"7", editor_options: {alert_unsaved: false}, placeholder: "Description" %>
+</div>
+
+<div class="form-group text-left">
+	<label class="visible-md visible-lg">Adresse</label>
+	<%= f.text_field :address, :class => 'form-control', placeholder: "Adresse" %>
+</div>
+
+<div class="form-group text-left">
+	<label class="visible-md visible-lg">Adresse email</label>
+	<%= f.text_field :email, :class => 'form-control', placeholder: "Adresse email" %>
+</div>
+
+<div class="form-group text-left">
+	<label class="visible-md visible-lg">Téléphone</label>
+	<%= f.text_field :phone, :class => 'form-control', placeholder: "Téléphone" %>
+</div>
+
+<div class="form-group text-left">
+	<label>Photo <span class="text-danger">*</span></label>
+	<%= f.file_field :photo, placeholder: "Photo" %>
+</div>
+
+<div class="form-group text-left">
+	<label>Photo de couverture <span class="text-danger">*</span></label>
+	<%= f.file_field :cover, placeholder: "Photo de couverture" %>
+</div>
+
+<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center text-danger">
+*Facultatif<br/><br/>
+</div>

@@ -1,0 +1,76 @@
+<div class="page-header text-center">
+  <%= link_to 'Confirmées', index_offers_path(:active), class: "#{nav_class_of(params[:status], 'active')} disappear remove-offers", remote: true %>
+  <%= link_to 'En attente', index_offers_path(:pending), class: "#{nav_class_of(params[:status], 'pending')} disappear remove-offers", remote: true %>
+</div>
+<table class="table table-striped text-center">
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr id="offer_<%= offer.id %>">
+        <td><%= image_tag offer.photo.url(:thumb) %></td>
+        <td><%= offer.title %></td>
+        <td class="visible-md visible-lg"><%= offer.expiry %></td>
+        <td class="icons-3">
+          <p class="text-right">
+
+          <% if offer.confirmed %>
+          	<%= link_to raw('<span class="glyphicon glyphicon-share-alt" alt="publier"></span>'), publish_offer_path(offer), class: "tooltiped btn btn-mini btn-info", "data-toggle" => "tooltip", "data-original-title" => "Publier l'annonce" %>
+          <% end %>
+          <% unless offer.pending || offer.confirmed %>
+          	<%= link_to raw('<span class="glyphicon glyphicon-ok" alt="verifier"></span>'), submit_offer_path(offer), class: "tooltiped btn btn-mini btn-info", method: :put, "data-toggle" => "tooltip", "data-original-title" => "Soumettre l'annonce" %>
+          <% end %>
+          <% unless offer.pending %>
+	          <%= link_to raw('<span class="glyphicon glyphicon-pencil" alt="editer"></span>'), edit_offer_path(offer), class: "tooltiped btn btn-mini btn-primary", "data-toggle" => "tooltip", "data-original-title" => "Editer l'annonce" %>
+
+	          <%= link_to raw('<span class="glyphicon glyphicon-remove" alt="supprimer"></span>'), offer_path(offer), class: "tooltiped btn btn-mini btn-danger disappear", "data-toggle" => "tooltip", "data-original-title" => "Supprimer l'annonce", method: :delete, data: {confirm: 'Êtes-vous sûr ?'}, remote: true%>
+          <% end %>
+          </p>
+        </td>
+      </tr>
+	    <% unless !offer.confirmed || offer.shops.empty? %>
+	  	  <tr id="<%= offer.id %>_publishers">
+		  		<td></td>
+	  			<td colspan="6">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						    	<th>Publié chez :</th>
+						    	<th></th>
+					    	</tr>
+				    	</thead>
+				    	<tbody>
+	  						<% offer.shops.each do |shop| %>
+									<tr id="<%= offer.id %>_<%= shop.id %>">
+										<td><%= shop.name %></td>
+										<td class="text-right">
+          									<%= link_to raw('<span class="glyphicon glyphicon-remove" alt="retirer"></span>'), unpublish_offer_path(id: offer.id, shop_id: shop.id), class: "tooltiped btn btn-mini btn-danger disappear", "data-toggle" => "tooltip", "data-original-title" => "Retirer l'annonce", method: :delete, data: {confirm: 'Êtes-vous sûr ?', remote: true}%>
+										</td>
+									</tr>
+								<% end %>
+				    	</tbody>
+				    </table>
+		    	</td>
+	  		</tr>
+  		<% end %>
+  		<% unless offer.confirmed || offer.pending || offer.pending_comment.blank? %>
+	  	  <tr>
+		  		<td></td>
+	  			<td colspan="6">
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						    	<th>Commentaires de l'équipe Moovup :</th>
+						    	<th></th>
+					    	</tr>
+				    	</thead>
+				    	<tbody>
+							<tr>
+								<td><%= offer.pending_comment %></td>
+							</tr>
+				    	</tbody>
+				    </table>
+		    	</td>
+	  		</tr>
+  		<% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,10 @@
+<section class="container text-center">
+    <h1 class="text-center">Vos magasins favoris</h1>
+	<% current_user.favorites.each do |favorite| %>
+		<div class="favorite">
+			<%= link_to image_tag(favorite.photo(:show)), shop_path(favorite) %>
+		</div>
+	<% end %>
+	<br/>
+	<%= link_to "Trouver des boutiques près de chez moi", aroundme_shops_path, class: "btn btn-primary" %>
+</div>

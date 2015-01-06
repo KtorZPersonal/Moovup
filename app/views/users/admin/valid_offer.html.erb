@@ -1,0 +1,35 @@
+<section class="container">
+<h1 class="text-center">Contrôle d'une annonce</h1>
+
+	<div class="col-md-6 text-center">
+	<div class="offer">
+	  <div class="img-block-offer">
+		<%= image_tag @offer.photo(:showInDaShop), alt: @offer.title %>
+	  </div>
+	  <div class="full-offer">
+	    <div class="header-offer"><h4><%= @offer.title %></h4></div>
+	    <div class="content-offer">
+	    	<%= @offer.description %>
+	    </div>
+	    <div class="footer-offer">
+	      <span class="date">Pendant <%= distance_of_time_in_words_to_now @offer.expiry unless @offer.expiry.blank? %></span>
+	    </div>
+	  </div>
+	</div>
+	</div>
+	<div class="col-md-6 admin-form-container">
+		<%= form_for @offer, url: valid_offer_admin_path(@offer), html:{method: :put} do |f|%>
+			<div class="form-group">
+				<label>Commentaires</label>
+				<%= f.text_area :pending_comment, class: "form-control" %>
+			</div>
+			<div class="form-group">
+				<%= f.select :confirmed, [["Confirmer", true], ["Rejeter", false]], {}, class: "select" %>
+			</div>
+			<div class="form-group text-center">
+				<input type="submit" value="Valider" class="btn btn-primary" />
+				<%= link_to "Annuler", offers_admin_path, class: "btn btn-danger" %>
+			</div>
+		<% end %>
+	</div>
+</section>

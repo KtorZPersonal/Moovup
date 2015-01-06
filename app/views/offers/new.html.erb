@@ -1,0 +1,11 @@
+<section class="container container-margin text-center">
+	<h1>Nouvelle annonce</h1>
+	<%= model_error_messages!(@offer) %>
+	<%= form_for @offer, url: offers_path, :html => {multipart: true} do |f| %>
+			<%= render partial: 'form', locals: {f: f} %>
+			<div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 text-center">
+				<%= f.submit  "Créer l'annonce", :class => "btn btn-primary"%>
+			    <%= link_to "Annuler", index_offers_path(:active), :class => 'btn btn-danger' %>
+			</div>
+	<% end %>
+</section>
