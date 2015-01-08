@@ -35,4 +35,5 @@ more ...) are used in order not to reimplement already existing features.
 
 
 You can access to a demo version directly on the heroku domain by the link below.
+
 [moovup on heroku](http://moovup.herokuapp.com)
