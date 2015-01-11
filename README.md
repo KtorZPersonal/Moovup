@@ -1,6 +1,6 @@
 # Moovup
 
-[Logo Moovup](app/assets/images/logo.png)
+![Logo Moovup](app/assets/images/logo.png)
 
 ## What is Moovup?
 Moovup is a web-application on which I worked on during more or less eight months. I was
